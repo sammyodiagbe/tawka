@@ -14,6 +14,7 @@ class TawkaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ParkingScreen(),
+      theme: ThemeData(fontFamily: 'Inter'),
       initialRoute: "login",
       routes: {
         "login": (context) => LoginScreen(),
