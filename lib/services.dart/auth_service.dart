@@ -23,6 +23,10 @@ class AuthService extends ChangeNotifier implements BaseAuth {
     }
   }
 
+  Future<void> signOut() async {
+    await _firebaseInstance.signOut();
+  }
+
   // Stream<User?> userStateChanges() {
   //   User? user;
   //   _firebaseInstance.authStateChanges().listen((User? user) {
@@ -37,5 +41,5 @@ abstract class BaseAuth {
   Future<void> createUserAccount(Map<String, dynamic> data);
 
   // listening to auth state changes
-
+  Future<void> signOut();
 }
