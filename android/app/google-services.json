@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "241538020363",
+    "project_id": "tawka-66f81",
+    "storage_bucket": "tawka-66f81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241538020363:android:9848e779dee9c7acd0830e",
+        "android_client_info": {
+          "package_name": "com.example.tawka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241538020363-usib2qabjriceoiah6n4c0rbsav8u7r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrTdN_bhxKGx4HepQtwDfrSZWyZPHmQyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241538020363-usib2qabjriceoiah6n4c0rbsav8u7r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
