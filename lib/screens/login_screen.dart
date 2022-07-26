@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Login',
+              'Welcome',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 36,
@@ -24,8 +24,18 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
+            Text(
+              'Enter your number..',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 25),
             TextField(
-              keyboardType: TextInputType.number,
+              style: TextStyle(
+                color: Colors.white,
+              ),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
                 filled: true,
@@ -42,6 +52,9 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 25),
             GestureDetector(
+              onTap: () {
+                print('Preparing to sign you in');
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 decoration: BoxDecoration(
