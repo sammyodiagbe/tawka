@@ -23,6 +23,28 @@ class AuthService extends ChangeNotifier implements BaseAuth {
     }
   }
 
+  Future<void> login(Map<String, dynamic> loginData) async {
+    final String email = loginData['email'];
+    final String password = loginData['password'];
+
+    print(email);
+    print(password);
+    try {
+      UserCredential _userCredentials = await _firebaseInstance
+          .signInWithEmailAndPassword(email: email, password: password);
+      print(_userCredentials);
+    } on FirebaseAuthException catch (error) {
+      if (error.code == 'invalid-email' || error.code == 'wrong-password') {
+        print('Invalid credentials');
+      } else if (error.code == 'user-not-foud') {
+        print('User account does not exist.');
+      }
+    } catch (error) {
+      print('Something went wrong');
+      print(error);
+    }
+  }
+
   Future<void> signOut() async {
     await _firebaseInstance.signOut();
   }
@@ -42,4 +64,6 @@ abstract class BaseAuth {
 
   // listening to auth state changes
   Future<void> signOut();
+
+  Future<void> login(Map<String, dynamic> loginData);
 }

@@ -2,9 +2,18 @@ import "package:flutter/material.dart";
 // ignore_for_file: prefer_const_constructors
 
 import 'package:tawka/constants.dart';
+import 'package:tawka/services.dart/auth_service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  String _email = '';
+  String _password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +35,9 @@ class LoginScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),
+              onChanged: (newValue) {
+                _email = newValue;
+              },
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
                 filled: true,
@@ -45,6 +57,9 @@ class LoginScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),
+              onChanged: (newValue) {
+                _password = newValue;
+              },
               obscureText: true,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
@@ -62,8 +77,9 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 25),
             GestureDetector(
-              onTap: () {
-                print('Preparing to sign you in');
+              onTap: () async {
+                AuthService _auth = AuthService();
+                await _auth.login({'email': _email, 'password': _password});
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
