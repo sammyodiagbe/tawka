@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 class AuthService extends ChangeNotifier implements BaseAuth {
   final _firebaseInstance = FirebaseAuth.instance;
 
+  @override
   Future<void> createUserAccount(Map<String, dynamic> data) async {
     String email = data['email'];
     String password = data['password'];
@@ -23,20 +24,18 @@ class AuthService extends ChangeNotifier implements BaseAuth {
     }
   }
 
-  Future<void> login(Map<String, dynamic> loginData) async {
+  @override
+  Future<void> logUserIn(Map<String, dynamic> loginData) async {
     final String email = loginData['email'];
     final String password = loginData['password'];
-
-    print(email);
-    print(password);
     try {
-      UserCredential _userCredentials = await _firebaseInstance
+      UserCredential userCredentials = await _firebaseInstance
           .signInWithEmailAndPassword(email: email, password: password);
-      print(_userCredentials);
+      print(userCredentials);
     } on FirebaseAuthException catch (error) {
       if (error.code == 'invalid-email' || error.code == 'wrong-password') {
         print('Invalid credentials');
-      } else if (error.code == 'user-not-foud') {
+      } else if (error.code == 'user-not-found') {
         print('User account does not exist.');
       }
     } catch (error) {
@@ -62,8 +61,9 @@ abstract class BaseAuth {
   // creating a new user account
   Future<void> createUserAccount(Map<String, dynamic> data);
 
-  // listening to auth state changes
+  // signing user out
   Future<void> signOut();
 
-  Future<void> login(Map<String, dynamic> loginData);
+  // logging user in
+  Future<void> logUserIn(Map<String, dynamic> loginData);
 }
