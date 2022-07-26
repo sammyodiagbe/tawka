@@ -15,9 +15,10 @@ class TawkaApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ParkingScreen(),
       theme: ThemeData(fontFamily: 'OPenSans'),
-      initialRoute: "login",
+      initialRoute: "parking_screen",
       routes: {
         "login": (context) => LoginScreen(),
+        "parking_screen": (context) => ParkingScreen()
       },
     );
   }
