@@ -80,6 +80,20 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'create_account');
+              },
+              child: Text(
+                'Create an account',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             )
           ],
         ),
