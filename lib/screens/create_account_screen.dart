@@ -7,6 +7,7 @@ class CreateAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: Padding(
         padding: EdgeInsets.all(30),
         child: Column(
@@ -17,6 +18,25 @@ class CreateAccountScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 36,
+              ),
+            ),
+            SizedBox(height: 25),
+            TextField(
+              style: TextStyle(
+                color: Colors.white,
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(20),
+                filled: true,
+                fillColor: textFieldBackgroundColor,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide.none,
+                ),
+                hintText: 'Username',
+                hintStyle: TextStyle(
+                  color: Color.fromARGB(255, 187, 183, 183),
+                ),
               ),
             ),
             SizedBox(height: 25),

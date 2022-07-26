@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:flutter/material.dart';
-import 'package:tawka/constants.dart';
+
+import "package:flutter/material.dart";
+import "../constants.dart";
 
 class ParkingScreen extends StatelessWidget {
   @override
