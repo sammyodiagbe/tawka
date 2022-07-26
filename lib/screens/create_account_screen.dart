@@ -1,9 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
 import "package:flutter/material.dart";
+import 'package:tawka/services.dart/auth_service.dart';
 import "../constants.dart";
 
-class CreateAccountScreen extends StatelessWidget {
+class CreateAccountScreen extends StatefulWidget {
+  @override
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
+  String _email = '';
+  String _password = '';
+  String _username = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +34,9 @@ class CreateAccountScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),
+              onChanged: (newValue) {
+                _username = newValue;
+              },
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
                 filled: true,
@@ -44,6 +56,9 @@ class CreateAccountScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),
+              onChanged: (newValue) {
+                _email = newValue;
+              },
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
                 filled: true,
@@ -63,6 +78,9 @@ class CreateAccountScreen extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),
+              onChanged: (newValue) {
+                _password = newValue;
+              },
               obscureText: true,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(20),
@@ -80,8 +98,14 @@ class CreateAccountScreen extends StatelessWidget {
             ),
             SizedBox(height: 25),
             GestureDetector(
-              onTap: () {
-                print('Preparing to sign you in');
+              onTap: () async {
+                print('creating user account');
+                AuthService _authService = AuthService();
+                await _authService.createUserAccount({
+                  'username': _username,
+                  'password': _password,
+                  'email': _email
+                });
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
