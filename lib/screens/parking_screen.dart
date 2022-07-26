@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:tawka/constants.dart';
 
 class ParkingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff3953dd),
+      backgroundColor: backgroundColor,
       // body: ,
       body: Padding(
         padding: const EdgeInsets.all(20),
