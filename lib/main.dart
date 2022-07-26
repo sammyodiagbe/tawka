@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
+import 'package:tawka/screens/login_screen.dart';
 import 'package:tawka/screens/parking_screen.dart';
 
 void main() {
@@ -13,6 +14,10 @@ class TawkaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ParkingScreen(),
+      initialRoute: "login",
+      routes: {
+        "login": (context) => LoginScreen(),
+      },
     );
   }
 }

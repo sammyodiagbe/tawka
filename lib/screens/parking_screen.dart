@@ -7,13 +7,32 @@ class ParkingScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff3953dd),
       // body: ,
-      body: Center(
-        child: Text(
-          'Tawka',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Tawka',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, 'login');
+                },
+                child: Text(
+                  'Get started.',
+                ),
+              )
+            ],
           ),
         ),
       ),
