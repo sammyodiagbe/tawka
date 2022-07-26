@@ -1,21 +1,19 @@
-import "package:flutter/material.dart";
 // ignore_for_file: prefer_const_constructors
 
-import 'package:tawka/constants.dart';
+import "package:flutter/material.dart";
+import "../constants.dart";
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class CreateAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
       body: Padding(
         padding: EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Signin to enter.',
+              'Create an account.',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 36,

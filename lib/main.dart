@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
+import 'package:tawka/screens/create_account_screen.dart';
 import 'package:tawka/screens/login_screen.dart';
 import 'package:tawka/screens/parking_screen.dart';
 
@@ -15,10 +16,11 @@ class TawkaApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ParkingScreen(),
       theme: ThemeData(fontFamily: 'OPenSans'),
-      initialRoute: "parking_screen",
+      initialRoute: "create_account",
       routes: {
         "login": (context) => LoginScreen(),
-        "parking_screen": (context) => ParkingScreen()
+        "parking_screen": (context) => ParkingScreen(),
+        "create_account": (context) => CreateAccountScreen()
       },
     );
   }
