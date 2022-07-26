@@ -19,7 +19,7 @@ class TawkaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'OPenSans'),
-      initialRoute: "login",
+      initialRoute: "splash_screen",
       routes: {
         "splash_screen": (context) => SplashScreen(),
         "login": (context) => LoginScreen(),

@@ -11,13 +11,18 @@ class SplashScreen extends StatelessWidget {
     return StreamBuilder(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: ((context, snapshot) {
+        print(snapshot.connectionState);
         if (snapshot.connectionState == ConnectionState.waiting) {
           return ParkingScreen();
         }
+
         if (snapshot.data != null) {
+          print('here');
           return ChatScreen();
+        } else {
+          print('therer');
+          return LoginScreen();
         }
-        return LoginScreen();
       }),
     );
   }
