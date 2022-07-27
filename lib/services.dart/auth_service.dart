@@ -1,17 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
-class AuthService extends ChangeNotifier implements BaseAuth {
+class AuthService implements BaseAuth {
   final _firebaseInstance = FirebaseAuth.instance;
 
+  Stream<User?> get authStateChanges => _firebaseInstance.authStateChanges();
+
+  User? get getCurrentUser => _firebaseInstance.currentUser;
+
   @override
-  Future<void> createUserAccount(Map<String, dynamic> data) async {
+  Future<bool> createUserAccount(Map<String, dynamic> data) async {
     String email = data['email'];
     String password = data['password'];
     String username = data['username'];
+    bool success = false;
     try {
       UserCredential user = await _firebaseInstance
           .createUserWithEmailAndPassword(email: email, password: password);
+      success = true;
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
         print('email is already in use');
@@ -22,6 +28,7 @@ class AuthService extends ChangeNotifier implements BaseAuth {
       print('Something went wrong');
       print(error);
     }
+    return success;
   }
 
   @override

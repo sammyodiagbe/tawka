@@ -101,11 +101,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               onTap: () async {
                 print('creating user account');
                 AuthService _authService = AuthService();
-                await _authService.createUserAccount({
+                final user = await _authService.createUserAccount({
                   'username': _username,
                   'password': _password,
                   'email': _email
                 });
+                // if (user) {
+                //   Navigator.popAndPushNamed(context, 'chat_screen');
+                // }
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
