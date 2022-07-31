@@ -17,6 +17,7 @@ class AuthService implements BaseAuth {
     try {
       UserCredential user = await _firebaseInstance
           .createUserWithEmailAndPassword(email: email, password: password);
+      await user.user?.updateDisplayName(username);
       success = true;
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
