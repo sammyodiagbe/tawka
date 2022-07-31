@@ -2,7 +2,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
-import 'package:tawka/screens/chat_screen.dart';
 import 'package:tawka/screens/create_account_screen.dart';
 import 'package:tawka/screens/home.dart';
 import 'package:tawka/screens/login_screen.dart';
@@ -10,6 +9,7 @@ import 'package:tawka/screens/splash_screen.dart';
 import "package:firebase_core/firebase_core.dart";
 import "package:tawka/screens/parking_screen.dart";
 import 'package:tawka/services.dart/auth_service.dart';
+import 'package:tawka/utility.dart/utility.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +29,9 @@ class TawkaApp extends StatelessWidget {
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChanges,
           initialData: null,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Utility(),
         )
       ],
       child: MaterialApp(
