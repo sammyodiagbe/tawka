@@ -14,6 +14,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   String _email = '';
   String _password = '';
   String _username = '';
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +33,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
             ),
             SizedBox(height: 25),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a value';
+                }
+              },
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -53,7 +60,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
             ),
             SizedBox(height: 25),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a value';
+                }
+              },
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -75,7 +87,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
             ),
             SizedBox(height: 25),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Field can\'t be empty';
+                }
+              },
               style: TextStyle(
                 color: Colors.white,
               ),
