@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
 
 class SettingsScreen extends StatelessWidget {
@@ -5,8 +6,11 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
       body: Center(
-        child: Text('Profile screen'),
+        child: Text('settings screen'),
       ),
     );
   }
