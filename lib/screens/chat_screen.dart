@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:tawka/services.dart/auth_service.dart';
 
 class ChatScreen extends StatelessWidget {
+  static String id = 'chat_screeen';
   @override
   Widget build(BuildContext context) {
     print(Provider.of<AuthService>(context).getCurrentUser?.email);

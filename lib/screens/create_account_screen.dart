@@ -5,6 +5,7 @@ import 'package:tawka/services.dart/auth_service.dart';
 import "../constants.dart";
 
 class CreateAccountScreen extends StatefulWidget {
+  static String id = 'create_account_screen';
   @override
   State<CreateAccountScreen> createState() => _CreateAccountScreenState();
 }
