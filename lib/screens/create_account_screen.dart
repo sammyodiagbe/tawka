@@ -38,6 +38,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a value';
                 }
+
+                return null;
               },
               style: TextStyle(
                 color: Colors.white,
@@ -65,6 +67,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a value';
                 }
+                return null;
               },
               style: TextStyle(
                 color: Colors.white,
@@ -92,6 +95,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 if (value == null || value.isEmpty) {
                   return 'Field can\'t be empty';
                 }
+                return null;
               },
               style: TextStyle(
                 color: Colors.white,
