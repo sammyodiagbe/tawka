@@ -5,6 +5,7 @@ import 'package:tawka/constants.dart';
 import 'package:tawka/services.dart/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const id = 'login_screen';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override

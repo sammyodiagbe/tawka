@@ -2,28 +2,16 @@
 
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
+import 'package:tawka/screens/profile_screen.dart';
+import 'package:tawka/screens/settings_screen.dart';
 import 'package:tawka/services.dart/auth_service.dart';
 
 class ChatScreen extends StatelessWidget {
-  static String id = 'chat_screeen';
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<AuthService>(context).getCurrentUser?.email);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Chats'),
-        elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: () async {
-              await AuthService().signOut();
-            },
-            icon: Icon(
-              Icons.logout,
-              size: 20,
-            ),
-          )
-        ],
+    return Container(
+      child: Center(
+        child: Text('Chat screen'),
       ),
     );
   }

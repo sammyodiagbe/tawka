@@ -4,6 +4,7 @@ import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 import 'package:tawka/screens/chat_screen.dart';
 import 'package:tawka/screens/create_account_screen.dart';
+import 'package:tawka/screens/home.dart';
 import 'package:tawka/screens/login_screen.dart';
 import 'package:tawka/screens/splash_screen.dart';
 import "package:firebase_core/firebase_core.dart";
@@ -36,10 +37,9 @@ class TawkaApp extends StatelessWidget {
         home: AuthenticationWrapper(),
         routes: {
           "splash_screen": (context) => SplashScreen(),
-          "login": (context) => LoginScreen(),
+          LoginScreen.id: (context) => LoginScreen(),
           "parking_screen": (context) => ParkingScreen(),
-          "create_account": (context) => CreateAccountScreen(),
-          "chat_screen": (context) => ChatScreen()
+          CreateAccountScreen.id: (context) => CreateAccountScreen(),
         },
       ),
     );
@@ -51,7 +51,7 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User?>();
     if (firebaseUser != null) {
-      return ChatScreen();
+      return HomeScreen();
     }
 
     return LoginScreen();
