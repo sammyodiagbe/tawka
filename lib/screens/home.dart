@@ -35,6 +35,10 @@ class HomeScreen extends StatelessWidget {
         //     )
         //   ],
         // ),
+        appBar: AppBar(
+          title: Text('Chats'),
+          elevation: 0,
+        ),
         body: _screenList[provider.screen],
         bottomNavigationBar: CustomBottomNavigationBar(),
       ),
