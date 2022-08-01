@@ -10,6 +10,11 @@
       "StackName": "amplify-tawka-dev-101110",
       "StackId": "arn:aws:cloudformation:us-east-1:616641553591:stack/amplify-tawka-dev-101110/2d8daca0-11ac-11ed-8f52-12aaa79c5871",
       "AmplifyAppId": "dobyp0n9q8gxr"
+    },
+    "categories": {
+      "auth": {
+        "tawka7e580ab2": {}
+      }
     }
   }
 }
