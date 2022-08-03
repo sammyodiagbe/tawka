@@ -9,6 +9,7 @@ import 'package:tawka/screens/splash_screen.dart';
 import "package:firebase_core/firebase_core.dart";
 import "package:tawka/screens/parking_screen.dart";
 import 'package:tawka/services.dart/auth_service.dart';
+import 'package:tawka/services.dart/chat_service.dart';
 import 'package:tawka/utility.dart/utility.dart';
 
 Future<void> main() async {
@@ -29,6 +30,9 @@ class TawkaApp extends StatelessWidget {
         StreamProvider(
           create: (context) => context.read<AuthService>().authStateChanges,
           initialData: null,
+        ),
+        Provider(
+          create: (_) => ChatService(),
         ),
         ChangeNotifierProvider(
           create: (context) => Utility(),

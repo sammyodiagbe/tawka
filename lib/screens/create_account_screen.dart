@@ -121,7 +121,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             SizedBox(height: 25),
             GestureDetector(
               onTap: () async {
-                print('creating user account');
                 AuthService _authService = AuthService();
                 final user = await _authService.createUserAccount({
                   'username': _username,

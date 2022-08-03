@@ -33,7 +33,7 @@ class AuthService implements BaseAuth {
         print('email is already in use');
       } else if (error.code == 'email-already-in-use') {
         print('email is already in use');
-      }
+      } else if (error.code == '') {}
     } catch (error) {
       print('Something went wrong');
       print(error);
