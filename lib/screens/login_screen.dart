@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 // ignore_for_file: prefer_const_constructors
 
 import 'package:tawka/constants.dart';
+import 'package:tawka/screens/create_account_screen.dart';
 import 'package:tawka/services.dart/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -103,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 20),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'create_account');
+                  Navigator.pushNamed(context, CreateAccountScreen.id);
                 },
                 child: Text(
                   'Create an account',

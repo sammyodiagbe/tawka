@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import "package:cloud_firestore/cloud_firestore.dart";
 
 class AuthService implements BaseAuth {
   final _firebaseInstance = FirebaseAuth.instance;
+  final _firebaseFirestore = FirebaseFirestore.instance;
 
   Stream<User?> get authStateChanges => _firebaseInstance.authStateChanges();
 
@@ -17,8 +19,17 @@ class AuthService implements BaseAuth {
       UserCredential user = await _firebaseInstance
           .createUserWithEmailAndPassword(email: email, password: password);
       await user.user?.updateDisplayName(username);
+      CollectionReference userEntry = _firebaseFirestore.collection('users');
+      userEntry
+          .add({'name': 'hello world', 'otherthing': 'testing'})
+          .then((value) => print('user added'))
+          .catchError((error) {
+            print('Something went wrong haaa');
+            print(error);
+          });
       success = true;
     } on FirebaseAuthException catch (error) {
+      print(error);
       if (error.code == 'weak-password') {
         print('email is already in use');
       } else if (error.code == 'email-already-in-use') {
