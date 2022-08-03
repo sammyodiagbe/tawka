@@ -19,16 +19,15 @@ class AuthService implements BaseAuth {
       UserCredential user = await _firebaseInstance
           .createUserWithEmailAndPassword(email: email, password: password);
       await user.user?.updateDisplayName(username);
-      CollectionReference userEntry = _firebaseFirestore.collection('users');
-      userEntry
-          .add({'name': 'hello world', 'otherthing': 'testing'})
-          .then((value) => print('user added'))
-          .catchError((error) {
-            print('Something went wrong haaa');
-            print(error);
-          });
+      final userEntry = _firebaseFirestore.collection('users').doc(username);
+      userEntry.set({
+        "username": username,
+        "email": email,
+        "avatar_url": "",
+      });
       success = true;
     } on FirebaseAuthException catch (error) {
+      print('Something is happening in this block');
       print(error);
       if (error.code == 'weak-password') {
         print('email is already in use');
